@@ -1,0 +1,38 @@
+body {background-color: blue;
+}
+#mybox {
+    width: 100px;
+    height: 100px;
+    background-color: aqua;
+    margin: 5px 5px 10px 15px;
+    outline: 5px ridge darkslategray;
+   
+}
+
+#robot {
+   position: absolute;
+    width: 30px;
+    height: 50px;
+    background-color: darksalmon;
+    outline: 1.5px solid black;
+    right: 0;
+    
+    animation-name: robot-dance;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes robot-dance {
+    0% {
+        background-color: coral;
+        left: 10%;
+        top: 5%;
+    }
+    25% {
+        background-color: aqua;
+        left: 60%;
+    } 
+    50%{top: 10%;
+    }
+}
