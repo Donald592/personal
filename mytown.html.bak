@@ -22,7 +22,9 @@
           <h2>My Town </h2>
           <h1></h1>
           <h2>🗽</h2>
-          <p> New York City is a big city consisting of four boroughs called Brooklyn, Queens, Manhattan, and the Bronx. </p>
+          <p> New York City is a big city consisting of four boroughs called
+            Brooklyn, Queens, Manhattan, and the Bronx. New York City during
+            holidays tend's to be a big tourist spot mostly in Manhattan.</p>
           <p> If you want a navigation menu for your side column that looks like
             the one on thesitewizard.com, you can generate your own and
             customize it, with the <a href="https://www.thesitewizard.com/wizards/css-menu-buttons.shtml">Navigation
