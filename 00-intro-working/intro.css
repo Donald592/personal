@@ -9,6 +9,6 @@
 
 body {
   background-color: green;
+  outline: 10px hidden darkblue;
 }
 
-.myclass {}
