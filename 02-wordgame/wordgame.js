@@ -18,7 +18,7 @@ function loadGame() {
             // Split the text by lines to get individual words
             json = JSON.parse(text);
             console.log('Words loaded!');
-            wordsloaded();
+            wordsLoaded();
         })
         .catch(error => {
             console.error('Error fetching words: ', error);
@@ -27,7 +27,7 @@ function loadGame() {
 }
 
 
-function randomBackgroundcolor() {
+function randomBackgroundColor() {
     let random = randInt(135,225);
     let colorString = `hsl(${random},100%,90%)`;
     body.style.backgroundColor = colorString;
@@ -39,11 +39,11 @@ function randomBackgroundcolor() {
 // For array of words: let arr = Object.keys(json)
 // For a random word:  let word = arr[randInt(0, arr.length - 1)];
 const randomWord=document.getElementById("random-word");
-
+let allWords = [];
 function wordsLoaded() {
     allWords = Object.keys(json)
-    let randomIndex = randInt(0,arr.length-1); 
-    randomWord.innerHTML = arr[randomIndex];
+    let randomIndex = randInt(0,allWords.length-1); 
+    randomWord.innerHTML = allWords[randomIndex];
 }
 
 
