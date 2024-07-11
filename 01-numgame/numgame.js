@@ -5,9 +5,9 @@
 const numField = document.getElementById("num-field");
 const messageText = document.getElementById("message-text");
 
-let secret;
+let secret= 2;
 let min= 1;
-let max = 100;
+let max = 200;
 
 var myConfetti = confetti.create(null, {
     resize: true,
@@ -19,7 +19,7 @@ function loadGame() {
     numField.max = max;
     numField.value = max;
     secret = Math.random();
-    secret= secret * 9(max-min+1);
+    secret= secret * (max-min+1);
     secret= secret + min;
     secret = Math.floor(secret);
 }
@@ -34,7 +34,7 @@ function makeGuess() {
     }else {
         messageText.innerHTML = `${guess} is correct!`;
         myConfetti({
-            particleCount: 100,
+            particleCount: 200,
             spread:160
         });
     }
