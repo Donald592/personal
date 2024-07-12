@@ -1,5 +1,5 @@
 let json;
-const body = document.body
+const body = document.body;
 
 // Returns a random integer between min and max
 //   [min, min+1, min+2, ... , max-1, max]
@@ -28,8 +28,8 @@ function loadGame() {
 
 
 function randomBackgroundColor() {
-    let random = randInt(135,225);
-    let colorString = `hsl(${random},100%,90%)`;
+    let random = randInt(135, 225);
+    let colorString = `hsl(${random},80%,90%)`;
     body.style.backgroundColor = colorString;
 }
 
@@ -38,12 +38,57 @@ function randomBackgroundColor() {
 // For checking word:  json.hasOwnProperty("programming")
 // For array of words: let arr = Object.keys(json)
 // For a random word:  let word = arr[randInt(0, arr.length - 1)];
-const randomWord=document.getElementById("random-word");
+const randomWord = document.getElementById("random-word");
+const guessField = document.getElementById("guess-field");
+const feedbackText = document.getElementById("feedback-text");
 let allWords = [];
+let fiveLetterWords = [];
+let secret = '';
 function wordsLoaded() {
-    allWords = Object.keys(json)
-    let randomIndex = randInt(0,allWords.length-1); 
+    allWords = Object.keys(json);
+    let randomIndex = randInt(0, allWords.length-1); 
     randomWord.innerHTML = allWords[randomIndex];
+
+    for (let i= 0; i < allWords.length; i++) {
+        let word = allWords[i];
+        if (word.length != 5) continue;
+        fiveLetterWords.push(word);
+    }
+
+    randomIndex = randInt(0, fiveLetterWords.length-1);
+    secret = fiveLetterWords[randomIndex].toLowerCase();
+}
+
+function changeGuess() {
+    let guess = guessField.value.toLowerCase();
+
+    // SKIP if guess is less than 5 letters
+    if (guess.length < 5) return;
+
+    // SKIP and empty input if guess is more than 5 letters
+    if (guess.length > 5) {
+        guestField.value = "";
+        return;
+    }
+    console.log(`Guess: "${guess}" and Secret: "${secret}"`);
+
+    //SKIP and empty input if guess is NOT a word
+    if (json.hasOwnProperty(guess)) {
+        feedbackText.innerHTML += `"${guess}" is not a word. Try again.<br>`;
+        guessField.value = "";
+        return;
+    }
+
+    let correctPlacement = 0;
+    for (let i = 0; i < 5; i++) {
+        if (guess[i] == secret[i]) {
+        correctPlacement++;
+       }
+    }    
+    feedbackText.innerHTML += `"${guess}" has ${correctPlacement} letter(s) in the correct place.<br>`; 
+    guessField.value = "";
+
+    
 }
 
 
