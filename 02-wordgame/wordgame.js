@@ -88,5 +88,4 @@ function changeGuess() {
     feedbackText.innerHTML += `"${guess}" has ${correctPlacement} letter(s) in the correct place.<br>`; 
     guessField.value = "";
 
-
-
+}
